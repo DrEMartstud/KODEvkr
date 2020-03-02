@@ -11,6 +11,10 @@
 		DC058C61240AF03200FE4CE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC058C60240AF03200FE4CE7 /* ViewController.swift */; };
 		DC058C64240AF03200FE4CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC058C62240AF03200FE4CE7 /* Main.storyboard */; };
 		DC058C69240AF03400FE4CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC058C67240AF03400FE4CE7 /* LaunchScreen.storyboard */; };
+		DC15B9C1240D8D5200C97CD7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC15B9C0240D8D5200C97CD7 /* WeatherViewController.swift */; };
+		DC15B9C4240D977400C97CD7 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC15B9C3240D977400C97CD7 /* WeatherCollectionViewCell.swift */; };
+		DC15B9C6240DA0B800C97CD7 /* setCornerRadiusExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */; };
+		DC15B9C8240DA26B00C97CD7 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC15B9C7240DA26B00C97CD7 /* Icons.swift */; };
 		DC3C2B41240C11F400264E4A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B40240C11F400264E4A /* SearchViewController.swift */; };
 		DC3C2B5B240C15FF00264E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3C2B47240C15FF00264E4A /* Assets.xcassets */; };
 		DC3C2B5C240C15FF00264E4A /* ColorsForGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */; };
@@ -33,6 +37,10 @@
 		DC058C63240AF03200FE4CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC058C68240AF03400FE4CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC058C6A240AF03400FE4CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC15B9C0240D8D5200C97CD7 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		DC15B9C3240D977400C97CD7 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setCornerRadiusExtension.swift; sourceTree = "<group>"; };
+		DC15B9C7240DA26B00C97CD7 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		DC3C2B40240C11F400264E4A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3C2B47240C15FF00264E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsForGradient.swift; sourceTree = "<group>"; };
@@ -85,6 +93,15 @@
 			path = VKRwithSB;
 			sourceTree = "<group>";
 		};
+		DC15B9C2240D974D00C97CD7 /* WeatherScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DC15B9C0240D8D5200C97CD7 /* WeatherViewController.swift */,
+				DC15B9C3240D977400C97CD7 /* WeatherCollectionViewCell.swift */,
+			);
+			path = WeatherScreen;
+			sourceTree = "<group>";
+		};
 		DC3C2B42240C15FF00264E4A /* VKRDiplomaKODE */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +125,9 @@
 		DC3C2B48240C15FF00264E4A /* Extensions+Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */,
 				DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */,
+				DC15B9C7240DA26B00C97CD7 /* Icons.swift */,
 				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
 				DC3C2B4A240C15FF00264E4A /* GradientExtension.swift */,
 				DC3C2B4B240C15FF00264E4A /* FontSetup.swift */,
@@ -131,21 +150,22 @@
 		DC3C2B51240C15FF00264E4A /* ViewControllers+views */ = {
 			isa = PBXGroup;
 			children = (
-				DC3C2B52240C15FF00264E4A /* TableView */,
+				DC15B9C2240D974D00C97CD7 /* WeatherScreen */,
+				DC3C2B52240C15FF00264E4A /* AttractionsTableView */,
 				DC3C2B68240C171A00264E4A /* Views */,
-				DC058C60240AF03200FE4CE7 /* ViewController.swift */,
 				DC3C2B40240C11F400264E4A /* SearchViewController.swift */,
+				DC058C60240AF03200FE4CE7 /* ViewController.swift */,
 			);
 			path = "ViewControllers+views";
 			sourceTree = "<group>";
 		};
-		DC3C2B52240C15FF00264E4A /* TableView */ = {
+		DC3C2B52240C15FF00264E4A /* AttractionsTableView */ = {
 			isa = PBXGroup;
 			children = (
 				DC3C2B53240C15FF00264E4A /* AttractionViewController.swift */,
 				DC3C2B54240C15FF00264E4A /* PrototypeCell */,
 			);
-			path = TableView;
+			path = AttractionsTableView;
 			sourceTree = "<group>";
 		};
 		DC3C2B54240C15FF00264E4A /* PrototypeCell */ = {
@@ -236,6 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3C2B62240C15FF00264E4A /* AppDelegate.swift in Sources */,
+				DC15B9C4240D977400C97CD7 /* WeatherCollectionViewCell.swift in Sources */,
+				DC15B9C1240D8D5200C97CD7 /* WeatherViewController.swift in Sources */,
 				DC3C2B6A240C180400264E4A /* Cells.swift in Sources */,
 				DC058C61240AF03200FE4CE7 /* ViewController.swift in Sources */,
 				DC3C2B5D240C15FF00264E4A /* GradientExtension.swift in Sources */,
@@ -244,8 +266,10 @@
 				DC3C2B5E240C15FF00264E4A /* FontSetup.swift in Sources */,
 				DC3C2B63240C15FF00264E4A /* AttractionViewController.swift in Sources */,
 				DC3C2B5C240C15FF00264E4A /* ColorsForGradient.swift in Sources */,
+				DC15B9C6240DA0B800C97CD7 /* setCornerRadiusExtension.swift in Sources */,
 				DC3C2B64240C15FF00264E4A /* AttractionCell.swift in Sources */,
 				DC3C2B60240C15FF00264E4A /* Images.swift in Sources */,
+				DC15B9C8240DA26B00C97CD7 /* Icons.swift in Sources */,
 				DC3C2B41240C11F400264E4A /* SearchViewController.swift in Sources */,
 				DC3C2B5F240C15FF00264E4A /* UIView+Pin.swift in Sources */,
 				DC058C5F240AF03200FE4CE7 /* SceneDelegate.swift in Sources */,
