@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
 //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillArrayWithTestValues(amount: 5)
+        searchHistoryArray = Array<String>.saveString(arr: searchHistoryArray)
         appendSearchResultsArray()
         searchResults.dataSource = self
         searchResults.delegate = self
