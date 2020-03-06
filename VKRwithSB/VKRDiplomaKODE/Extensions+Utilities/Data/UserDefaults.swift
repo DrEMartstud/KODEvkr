@@ -27,6 +27,7 @@ extension Array {
         for word in history {array.append(word)}
         
         while array.count > 5 { print("Overflows"); array.remove(at: 0) }
+        print(array)
         return array
     }
 }

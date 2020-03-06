@@ -12,13 +12,15 @@ class SearchViewController: UIViewController {
 //MARK:- Outlets + Vars and Lets
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchResults: UITableView!
-    
+    var usersHistoryArray:[String] = []
     var searchResultsArray:[String] = []
     var searchHistoryArray:[String] = []
 //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchHistoryArray = Array<String>.saveString(arr: searchHistoryArray)
+        fillArrayWithTestValues()
+//        searchHistoryArray = Array<String>.saveString(arr: searchHistoryArray)
+        saveHistoryArray(usersInput: &usersHistoryArray, historyArray: &searchHistoryArray)
         appendSearchResultsArray()
         searchResults.dataSource = self
         searchResults.delegate = self
@@ -29,15 +31,37 @@ class SearchViewController: UIViewController {
 
 //MARK:- Fill searchHistory array
     
-    func fillArrayWithTestValues(amount: Int) {for testValue in 1...amount {searchHistoryArray.append("Testvalue\(testValue)")}}
+    func fillArrayWithTestValues() {
+        usersHistoryArray.append("Moscow")
+        usersHistoryArray.append("Kaliningrad")
+        usersHistoryArray.append("Kaliningrad")
+        usersHistoryArray.append("Kaliningrad")
+        usersHistoryArray.append("Kaliningrad")
+        usersHistoryArray.append("Moscow")
+        usersHistoryArray.append("Kazan")
+        usersHistoryArray.append("Kazan")
+        usersHistoryArray.append("Svetliy")
+        usersHistoryArray.append("Moscow")
+        usersHistoryArray.append("Magadan")
+        usersHistoryArray.append("Astrahan")
+        usersHistoryArray.append("Astrahan")
+        usersHistoryArray.append("Moscow")
+        usersHistoryArray.append("Astrahan")
+        usersHistoryArray.append("Astrahan")
+        usersHistoryArray.append("Kazahstan")
+        usersHistoryArray.append("Karaganda")
+    }
 
     
     
 //MARK:- Append Array
     
     func appendSearchResultsArray(){for eachWord in searchHistoryArray {searchResultsArray.append(eachWord)}}
+ 
+//MARK:- Set and get history array
     
-    
+    func saveHistoryArray(usersInput: inout [String], historyArray: inout [String]) {historyArray = Array<String>.saveString(arr: usersInput)}
+    func retrieveHistoryArray(historyArray: inout [String]) {historyArray = SearchHistory.searchHistory}
     
     //MARK:- closeKeyboard
     @objc func closeKeyboard() {
@@ -50,8 +74,6 @@ class SearchViewController: UIViewController {
 
 
 //MARK:- Extensions
-
-
 
 extension SearchViewController: UITextFieldDelegate{
    //MARK:- Textfields Delegates
@@ -89,8 +111,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("returned cell")
         var cell = tableView.dequeueReusableCell(withIdentifier: Cells.searchResultsCell)
+        
+        
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: Cells.searchResultsCell)}
         cell?.textLabel?.text = searchResultsArray[indexPath.row]
+        cell?.textLabel?.set(Font.title)
+        cell?.backgroundColor = UIColor.mainInterfaceColor
         return cell!
     }
 }

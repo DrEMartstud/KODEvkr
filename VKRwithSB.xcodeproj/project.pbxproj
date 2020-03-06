@@ -29,6 +29,7 @@
 		DCF105A52412E2EB009DFD9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A42412E2EB009DFD9E /* UserDefaults.swift */; };
 		DCF105A72412E2F6009DFD9E /* Abstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A62412E2F6009DFD9E /* Abstract.swift */; };
 		DCF105A92412E301009DFD9E /* abstract.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF105A82412E301009DFD9E /* abstract.json */; };
+		DCF105AE2412E641009DFD9E /* InterfaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105AD2412E641009DFD9E /* InterfaceColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		DCF105A42412E2EB009DFD9E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		DCF105A62412E2F6009DFD9E /* Abstract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstract.swift; sourceTree = "<group>"; };
 		DCF105A82412E301009DFD9E /* abstract.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abstract.json; sourceTree = "<group>"; };
+		DCF105AD2412E641009DFD9E /* InterfaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,16 +129,9 @@
 		DC3C2B48240C15FF00264E4A /* Extensions+Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DCF105A62412E2F6009DFD9E /* Abstract.swift */,
-				DCF105A42412E2EB009DFD9E /* UserDefaults.swift */,
-				DCF105A82412E301009DFD9E /* abstract.json */,
-				DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */,
-				DC15B9C7240DA26B00C97CD7 /* Icons.swift */,
-				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
-				DC3C2B4B240C15FF00264E4A /* FontSetup.swift */,
-				DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */,
-				DC3C2B4D240C15FF00264E4A /* Images.swift */,
-				DC3C2B69240C180400264E4A /* Cells.swift */,
+				DCF105AC2412E56C009DFD9E /* Data */,
+				DCF105AB2412E55F009DFD9E /* Extensions */,
+				DCF105AA2412E516009DFD9E /* structs for visual */,
 			);
 			path = "Extensions+Utilities";
 			sourceTree = "<group>";
@@ -185,6 +180,38 @@
 				DC3C2B56240C15FF00264E4A /* KODEview.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCF105AA2412E516009DFD9E /* structs for visual */ = {
+			isa = PBXGroup;
+			children = (
+				DC3C2B4B240C15FF00264E4A /* FontSetup.swift */,
+				DC15B9C7240DA26B00C97CD7 /* Icons.swift */,
+				DC3C2B4D240C15FF00264E4A /* Images.swift */,
+			);
+			path = "structs for visual";
+			sourceTree = "<group>";
+		};
+		DCF105AB2412E55F009DFD9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */,
+				DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */,
+				DCF105AD2412E641009DFD9E /* InterfaceColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCF105AC2412E56C009DFD9E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DCF105A42412E2EB009DFD9E /* UserDefaults.swift */,
+				DCF105A62412E2F6009DFD9E /* Abstract.swift */,
+				DCF105A82412E301009DFD9E /* abstract.json */,
+				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
+				DC3C2B69240C180400264E4A /* Cells.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +303,7 @@
 				DC15B9C8240DA26B00C97CD7 /* Icons.swift in Sources */,
 				DC3C2B41240C11F400264E4A /* SearchViewController.swift in Sources */,
 				DC3C2B5F240C15FF00264E4A /* UIView+Pin.swift in Sources */,
+				DCF105AE2412E641009DFD9E /* InterfaceColors.swift in Sources */,
 				DC058C5F240AF03200FE4CE7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
