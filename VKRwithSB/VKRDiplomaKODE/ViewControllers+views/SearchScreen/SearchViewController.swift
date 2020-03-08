@@ -146,24 +146,11 @@ class SearchViewController: UIViewController {
       // check if the notification is has anything to do with hiding the keyboard. If not, you move the search footer down and bail out
         screenShowsFirstTime = false
         guard notification.name == UIResponder.keyboardWillChangeFrameNotification else {
-     
         view.layoutIfNeeded()
         return
       }
 
-      guard
-        let info = notification.userInfo,
-        let keyboardFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        else {
-          return
-      }
-
-      // If the notification identifies the ending frame rectangle of the keyboard, you move the search footer just above the keyboard itself
-      let keyboardHeight = keyboardFrame.cgRectValue.size.height
-      UIView.animate(withDuration: 0.1, animations: { () -> Void in
-        
-        self.view.layoutIfNeeded()
-      })
+      guard let info = notification.userInfo else {return}
     }
 }
 
