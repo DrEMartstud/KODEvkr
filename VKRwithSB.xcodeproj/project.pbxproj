@@ -17,8 +17,6 @@
 		DC15B9C8240DA26B00C97CD7 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC15B9C7240DA26B00C97CD7 /* Icons.swift */; };
 		DC3C2B41240C11F400264E4A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B40240C11F400264E4A /* SearchViewController.swift */; };
 		DC3C2B5B240C15FF00264E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3C2B47240C15FF00264E4A /* Assets.xcassets */; };
-		DC3C2B5C240C15FF00264E4A /* ColorsForGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */; };
-		DC3C2B5D240C15FF00264E4A /* GradientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B4A240C15FF00264E4A /* GradientExtension.swift */; };
 		DC3C2B5E240C15FF00264E4A /* FontSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B4B240C15FF00264E4A /* FontSetup.swift */; };
 		DC3C2B5F240C15FF00264E4A /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */; };
 		DC3C2B60240C15FF00264E4A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B4D240C15FF00264E4A /* Images.swift */; };
@@ -28,6 +26,11 @@
 		DC3C2B64240C15FF00264E4A /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B55240C15FF00264E4A /* AttractionCell.swift */; };
 		DC3C2B65240C15FF00264E4A /* KODEview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B56240C15FF00264E4A /* KODEview.swift */; };
 		DC3C2B6A240C180400264E4A /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B69240C180400264E4A /* Cells.swift */; };
+		DCE429912415ADBB00E77909 /* TestStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE429902415ADBB00E77909 /* TestStruct.swift */; };
+		DCF105A52412E2EB009DFD9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A42412E2EB009DFD9E /* UserDefaults.swift */; };
+		DCF105A72412E2F6009DFD9E /* Abstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A62412E2F6009DFD9E /* Abstract.swift */; };
+		DCF105A92412E301009DFD9E /* abstract.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF105A82412E301009DFD9E /* abstract.json */; };
+		DCF105AE2412E641009DFD9E /* InterfaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105AD2412E641009DFD9E /* InterfaceColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +46,6 @@
 		DC15B9C7240DA26B00C97CD7 /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		DC3C2B40240C11F400264E4A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC3C2B47240C15FF00264E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsForGradient.swift; sourceTree = "<group>"; };
-		DC3C2B4A240C15FF00264E4A /* GradientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientExtension.swift; sourceTree = "<group>"; };
 		DC3C2B4B240C15FF00264E4A /* FontSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSetup.swift; sourceTree = "<group>"; };
 		DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		DC3C2B4D240C15FF00264E4A /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -54,6 +55,11 @@
 		DC3C2B55240C15FF00264E4A /* AttractionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		DC3C2B56240C15FF00264E4A /* KODEview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KODEview.swift; sourceTree = "<group>"; };
 		DC3C2B69240C180400264E4A /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		DCE429902415ADBB00E77909 /* TestStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStruct.swift; sourceTree = "<group>"; };
+		DCF105A42412E2EB009DFD9E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		DCF105A62412E2F6009DFD9E /* Abstract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstract.swift; sourceTree = "<group>"; };
+		DCF105A82412E301009DFD9E /* abstract.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abstract.json; sourceTree = "<group>"; };
+		DCF105AD2412E641009DFD9E /* InterfaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,15 +131,9 @@
 		DC3C2B48240C15FF00264E4A /* Extensions+Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */,
-				DC3C2B49240C15FF00264E4A /* ColorsForGradient.swift */,
-				DC15B9C7240DA26B00C97CD7 /* Icons.swift */,
-				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
-				DC3C2B4A240C15FF00264E4A /* GradientExtension.swift */,
-				DC3C2B4B240C15FF00264E4A /* FontSetup.swift */,
-				DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */,
-				DC3C2B4D240C15FF00264E4A /* Images.swift */,
-				DC3C2B69240C180400264E4A /* Cells.swift */,
+				DCF105AC2412E56C009DFD9E /* Data */,
+				DCF105AB2412E55F009DFD9E /* Extensions */,
+				DCF105AA2412E516009DFD9E /* structs for visual */,
 			);
 			path = "Extensions+Utilities";
 			sourceTree = "<group>";
@@ -153,8 +153,7 @@
 				DC15B9C2240D974D00C97CD7 /* WeatherScreen */,
 				DC3C2B52240C15FF00264E4A /* AttractionsTableView */,
 				DC3C2B68240C171A00264E4A /* Views */,
-				DC3C2B40240C11F400264E4A /* SearchViewController.swift */,
-				DC058C60240AF03200FE4CE7 /* ViewController.swift */,
+				DCE4298E24159A5700E77909 /* SearchScreen */,
 			);
 			path = "ViewControllers+views";
 			sourceTree = "<group>";
@@ -179,9 +178,51 @@
 		DC3C2B68240C171A00264E4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC3C2B56240C15FF00264E4A /* KODEview.swift */,
+				DC058C60240AF03200FE4CE7 /* ViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCE4298E24159A5700E77909 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DC3C2B40240C11F400264E4A /* SearchViewController.swift */,
+				DC3C2B56240C15FF00264E4A /* KODEview.swift */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		DCF105AA2412E516009DFD9E /* structs for visual */ = {
+			isa = PBXGroup;
+			children = (
+				DC3C2B4B240C15FF00264E4A /* FontSetup.swift */,
+				DC15B9C7240DA26B00C97CD7 /* Icons.swift */,
+				DC3C2B4D240C15FF00264E4A /* Images.swift */,
+			);
+			path = "structs for visual";
+			sourceTree = "<group>";
+		};
+		DCF105AB2412E55F009DFD9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC15B9C5240DA0B800C97CD7 /* setCornerRadiusExtension.swift */,
+				DC3C2B4C240C15FF00264E4A /* UIView+Pin.swift */,
+				DCF105AD2412E641009DFD9E /* InterfaceColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCF105AC2412E56C009DFD9E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DCF105A42412E2EB009DFD9E /* UserDefaults.swift */,
+				DCF105A62412E2F6009DFD9E /* Abstract.swift */,
+				DCF105A82412E301009DFD9E /* abstract.json */,
+				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
+				DC3C2B69240C180400264E4A /* Cells.swift */,
+				DCE429902415ADBB00E77909 /* TestStruct.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC058C69240AF03400FE4CE7 /* LaunchScreen.storyboard in Resources */,
+				DCF105A92412E301009DFD9E /* abstract.json in Resources */,
 				DC3C2B5B240C15FF00264E4A /* Assets.xcassets in Resources */,
 				DC058C64240AF03200FE4CE7 /* Main.storyboard in Resources */,
 			);
@@ -260,18 +302,20 @@
 				DC15B9C1240D8D5200C97CD7 /* WeatherViewController.swift in Sources */,
 				DC3C2B6A240C180400264E4A /* Cells.swift in Sources */,
 				DC058C61240AF03200FE4CE7 /* ViewController.swift in Sources */,
-				DC3C2B5D240C15FF00264E4A /* GradientExtension.swift in Sources */,
+				DCF105A72412E2F6009DFD9E /* Abstract.swift in Sources */,
+				DCF105A52412E2EB009DFD9E /* UserDefaults.swift in Sources */,
 				DC3C2B61240C15FF00264E4A /* Attraction.swift in Sources */,
 				DC3C2B65240C15FF00264E4A /* KODEview.swift in Sources */,
 				DC3C2B5E240C15FF00264E4A /* FontSetup.swift in Sources */,
 				DC3C2B63240C15FF00264E4A /* AttractionViewController.swift in Sources */,
-				DC3C2B5C240C15FF00264E4A /* ColorsForGradient.swift in Sources */,
 				DC15B9C6240DA0B800C97CD7 /* setCornerRadiusExtension.swift in Sources */,
+				DCE429912415ADBB00E77909 /* TestStruct.swift in Sources */,
 				DC3C2B64240C15FF00264E4A /* AttractionCell.swift in Sources */,
 				DC3C2B60240C15FF00264E4A /* Images.swift in Sources */,
 				DC15B9C8240DA26B00C97CD7 /* Icons.swift in Sources */,
 				DC3C2B41240C11F400264E4A /* SearchViewController.swift in Sources */,
 				DC3C2B5F240C15FF00264E4A /* UIView+Pin.swift in Sources */,
+				DCF105AE2412E641009DFD9E /* InterfaceColors.swift in Sources */,
 				DC058C5F240AF03200FE4CE7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

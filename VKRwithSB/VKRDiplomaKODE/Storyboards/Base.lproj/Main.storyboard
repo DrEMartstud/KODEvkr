@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Coy-Y8-thz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tCi-gB-Nzm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -9,29 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="dVq-tx-PRq">
-            <objects>
-                <navigationController id="mbh-IR-FIl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nnq-xo-LwS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Coy-Y8-thz" kind="relationship" relationship="rootViewController" id="6cX-LZ-w3Z"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7eI-dX-5SN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2653" y="139"/>
-        </scene>
         <!--Погода-->
         <scene sceneID="Xyh-GA-C2x">
             <objects>
@@ -40,18 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gu4-MZ-AnZ">
-                                <rect key="frame" x="8" y="104" width="398" height="56"/>
-                                <color key="backgroundColor" red="0.18194985390000001" green="0.181976676" blue="0.18194067480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ljg-pb-Omh"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search"/>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-Er-Lyr">
-                                <rect key="frame" x="0.0" y="176" width="414" height="720"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
                                 <color key="backgroundColor" red="0.12355778370000001" green="0.1235780045" blue="0.1235509142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" restorationIdentifier="KODEview" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-ej-r64" userLabel="KODEview" customClass="KODEview" customModule="VKRwithSB" customModuleProvider="target">
@@ -77,21 +44,17 @@
                         <constraints>
                             <constraint firstItem="dC7-ej-r64" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" id="3pr-5u-3e8"/>
                             <constraint firstItem="dC7-ej-r64" firstAttribute="bottom" secondItem="IGR-Er-Lyr" secondAttribute="bottom" id="929-YC-D6g"/>
-                            <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="gu4-MZ-AnZ" secondAttribute="trailing" constant="8" id="Alm-KP-NPh"/>
                             <constraint firstItem="IGR-Er-Lyr" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" id="PAq-7G-ycR"/>
+                            <constraint firstItem="IGR-Er-Lyr" firstAttribute="top" secondItem="wVw-0u-kjf" secondAttribute="top" constant="16" id="XoS-Up-uEx"/>
                             <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="IGR-Er-Lyr" secondAttribute="trailing" id="Yva-TK-XyP"/>
-                            <constraint firstItem="gu4-MZ-AnZ" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" constant="8" id="fih-SN-gh7"/>
-                            <constraint firstItem="IGR-Er-Lyr" firstAttribute="top" secondItem="gu4-MZ-AnZ" secondAttribute="bottom" constant="16" id="gl7-3V-gwE"/>
                             <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="dC7-ej-r64" secondAttribute="trailing" id="oO5-hY-Skq"/>
-                            <constraint firstItem="gu4-MZ-AnZ" firstAttribute="top" secondItem="wVw-0u-kjf" secondAttribute="top" constant="16" id="xaA-6N-nOj"/>
                             <constraint firstAttribute="bottom" secondItem="dC7-ej-r64" secondAttribute="bottom" id="yke-Zh-dOu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wVw-0u-kjf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск" id="ti8-3P-cKc"/>
                     <connections>
-                        <outlet property="searchBar" destination="gu4-MZ-AnZ" id="fIa-a2-D4j"/>
-                        <outlet property="searchResults" destination="IGR-Er-Lyr" id="ZYy-Eg-yGh"/>
+                        <outlet property="tableView" destination="IGR-Er-Lyr" id="ZYy-Eg-yGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scY-GP-Oru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -487,6 +450,29 @@
             </objects>
             <point key="canvasLocation" x="1569.5652173913045" y="148.66071428571428"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GBE-oi-AmH">
+            <objects>
+                <navigationController id="tCi-gB-Nzm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Et7-yM-UKx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="mainInterfaceColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="mainColor"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="mainColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Coy-Y8-thz" kind="relationship" relationship="rootViewController" id="xQr-Cw-dbl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylN-1I-9nO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1935" y="151"/>
+        </scene>
     </scenes>
     <resources>
         <image name="KODE" width="123" height="37"/>
@@ -495,6 +481,9 @@
         <image name="rainImage" width="2000" height="1333"/>
         <namedColor name="blueButtonColor">
             <color red="0.0" green="0.4779999852180481" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
