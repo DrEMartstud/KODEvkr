@@ -10,21 +10,36 @@ import UIKit
 
 class SearchViewController: UIViewController {
 //MARK:- Outlets + Vars and Lets
-    @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var searchResults: UITableView!
-    var usersHistoryArray:[String] = []
+    @IBOutlet weak var searchFooter: KODEview!
+    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
+    //
+    var parsedDataArray:[Abstract] = []
+    var parsedSearchResultsArray:[Abstract] = []
+    //
     var searchResultsArray:[String] = []
+    var usersHistoryArray:[String] = []
     var searchHistoryArray:[String] = []
-//MARK:- viewDidLoad()
+    //
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+   
+    
+    //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         fillArrayWithTestValues()
+        parsedDataArray = Abstract.abstract()
+        print(parsedDataArray)
+        setupSearchController()
 //        searchHistoryArray = Array<String>.saveString(arr: searchHistoryArray)
         saveHistoryArray(usersInput: &usersHistoryArray, historyArray: &searchHistoryArray)
         appendSearchResultsArray()
         searchResults.dataSource = self
         searchResults.delegate = self
-        searchBar.delegate = self
+//        searchController.searchBar.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
@@ -52,7 +67,17 @@ class SearchViewController: UIViewController {
         usersHistoryArray.append("Karaganda")
     }
 
+    //MARK:- Setup SC
     
+    func setupSearchController() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск"
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
     
 //MARK:- Append Array
     
@@ -68,40 +93,31 @@ class SearchViewController: UIViewController {
     view.endEditing(true)
     }
     
-    
+    //MARK:- Filter Content for search
+    func filterContentForSearchText(_ searchText: String,
+                                    category: Abstract.Category? = nil) {
+      parsedSearchResultsArray = parsedDataArray.filter { (city: Abstract) -> Bool in
+        return city.name.lowercased().contains(searchText.lowercased())
+      }
+      searchResults.reloadData()
+    }
     
 }
 
 
 //MARK:- Extensions
 
-extension SearchViewController: UITextFieldDelegate{
-   //MARK:- Textfields Delegates
-   func textFieldShouldClear(_ textField: UITextField) -> Bool {
-          print("pressed x")
-          self.resignFirstResponder()
-          self.searchResultsArray.removeAll()
-          searchBar.text = ""
-          appendSearchResultsArray()
-          searchResults.reloadData()
-          return false
-        }
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-          print("Searching..")
-          if searchBar.text?.count != 0 {
-             self.searchResultsArray.removeAll()
-             for eachWord in searchHistoryArray {
-                 let range = eachWord.lowercased().range(of: searchBar.text!, options: .caseInsensitive, range: nil, locale: nil)
-                 if range != nil {
-                     self.searchHistoryArray.append(eachWord)
-                 }
-             }
-          }
-         searchResults.reloadData()
-          return true
-        }
-    
+  
+//MARK:- Search Results Updating
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
 }
+
+
+
 //MARK:- TableView Delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

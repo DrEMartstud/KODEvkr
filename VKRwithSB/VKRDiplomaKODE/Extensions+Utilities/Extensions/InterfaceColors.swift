@@ -11,4 +11,5 @@ import UIKit
 extension UIColor {
     static let mainInterfaceColor = UIColor(named: "mainInterfaceColor")
     static let secondaryInterfaceColor = UIColor(named: "secondaryInterfaceColor")
+    static let blueButtonColor = UIColor(named: "blueButtonColor")
 }
