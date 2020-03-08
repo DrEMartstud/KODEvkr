@@ -10,9 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
 //MARK:- Outlets + Vars and Lets
-    @IBOutlet weak var searchResults: UITableView!
-    @IBOutlet weak var searchFooter: KODEview!
-    @IBOutlet weak var searchFooterBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
     //
     var parsedDataArray:[Abstract] = []
     var parsedSearchResultsArray:[Abstract] = []
@@ -25,25 +23,45 @@ class SearchViewController: UIViewController {
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
-   
+    var screenShowsFirstTime: Bool = true
+    var isFiltering: Bool {
+     let searchBarScopeIsFiltering =
+       searchController.searchBar.selectedScopeButtonIndex != 0
+     return searchController.isActive &&
+       (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
     
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillArrayWithTestValues()
+        
+        
+        
+       // fillArrayWithTestValues()
         parsedDataArray = Abstract.abstract()
-        print(parsedDataArray)
         setupSearchController()
-//        searchHistoryArray = Array<String>.saveString(arr: searchHistoryArray)
+        for word in parsedDataArray {
+            usersHistoryArray.append(word.name)
+        }
+        print(usersHistoryArray)
         saveHistoryArray(usersInput: &usersHistoryArray, historyArray: &searchHistoryArray)
         appendSearchResultsArray()
-        searchResults.dataSource = self
-        searchResults.delegate = self
-//        searchController.searchBar.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+//
+        setupNotificationCenter()
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
-
+    //MARK:- viewWillAppear
+     override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       
+//       if let indexPath = tableView.indexPathForSelectedRow {
+//         tableView.deselectRow(at: indexPath, animated: true)
+//       }
+     }
 //MARK:- Fill searchHistory array
     
     func fillArrayWithTestValues() {
@@ -77,8 +95,24 @@ class SearchViewController: UIViewController {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationItem.searchController = searchController
         definesPresentationContext = true
+      
+        searchController.searchBar.scopeButtonTitles = Abstract.Category.allCases.map { $0.rawValue }
+        searchController.searchBar.delegate = self
     }
     
+    func setupNotificationCenter() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(
+          forName: UIResponder.keyboardWillChangeFrameNotification,
+          object: nil, queue: .main) { (notification) in
+            self.handleKeyboard(notification: notification)
+        }
+        notificationCenter.addObserver(
+          forName: UIResponder.keyboardWillHideNotification,
+          object: nil, queue: .main) { (notification) in
+            self.handleKeyboard(notification: notification)
+        }
+    }
 //MARK:- Append Array
     
     func appendSearchResultsArray(){for eachWord in searchHistoryArray {searchResultsArray.append(eachWord)}}
@@ -94,35 +128,77 @@ class SearchViewController: UIViewController {
     }
     
     //MARK:- Filter Content for search
-    func filterContentForSearchText(_ searchText: String,
-                                    category: Abstract.Category? = nil) {
+    func filterContentForSearchText(_ searchText: String,category: Abstract.Category? = nil) {
       parsedSearchResultsArray = parsedDataArray.filter { (city: Abstract) -> Bool in
-        return city.name.lowercased().contains(searchText.lowercased())
+        let doesCategoryMatch = category == .all || city.category == category
+        if isSearchBarEmpty {
+          return doesCategoryMatch
+        } else {
+          return doesCategoryMatch && city.name.lowercased()
+            .contains(searchText.lowercased())
+        }
       }
-      searchResults.reloadData()
+      
+      tableView.reloadData()
     }
-    
+    //MARK:- handleKeyboard
+    func handleKeyboard(notification: Notification) {
+      // check if the notification is has anything to do with hiding the keyboard. If not, you move the search footer down and bail out
+        screenShowsFirstTime = false
+        guard notification.name == UIResponder.keyboardWillChangeFrameNotification else {
+     
+        view.layoutIfNeeded()
+        return
+      }
+
+      guard
+        let info = notification.userInfo,
+        let keyboardFrame = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else {
+          return
+      }
+
+      // If the notification identifies the ending frame rectangle of the keyboard, you move the search footer just above the keyboard itself
+      let keyboardHeight = keyboardFrame.cgRectValue.size.height
+      UIView.animate(withDuration: 0.1, animations: { () -> Void in
+        
+        self.view.layoutIfNeeded()
+      })
+    }
 }
 
 
 //MARK:- Extensions
 
-  
-//MARK:- Search Results Updating
-extension SearchViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
+  //MARK:- searchBar
+  extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+      let category = Abstract.Category(rawValue: searchBar.scopeButtonTitles![selectedScope])
+      filterContentForSearchText(searchBar.text!, category: category)
     }
-}
-
-
+  }
+  //MARK:- updateSearchResults
+  extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+      let searchBar = searchController.searchBar
+      let category = Abstract.Category(rawValue:
+        searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+      filterContentForSearchText(searchBar.text!, category: category)
+    }
+  }
 
 //MARK:- TableView Delegates
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("returned number of rows")
-        return searchResultsArray.count
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        if screenShowsFirstTime {
+            return searchHistoryArray.count
+        }
+        if isFiltering {
+        return parsedSearchResultsArray.count
+      }
+      
+      return parsedDataArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("returned cell")
@@ -130,8 +206,25 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         if cell == nil { cell = UITableViewCell(style: .default, reuseIdentifier: Cells.searchResultsCell)}
-        cell?.textLabel?.text = searchResultsArray[indexPath.row]
-        cell?.textLabel?.set(Font.title)
+        
+        if screenShowsFirstTime {
+            cell?.textLabel?.text = searchHistoryArray[indexPath.row]
+            cell?.textLabel?.set(Font.description)
+            cell?.backgroundColor = UIColor.mainInterfaceColor
+            return cell!
+        }
+        let city: Abstract
+        if isFiltering {
+          city = parsedSearchResultsArray[indexPath.row]
+            cell?.textLabel?.text = city.name
+            cell?.textLabel?.set(Font.title)
+        } else {
+          city = parsedDataArray[indexPath.row]
+            cell?.textLabel?.text = city.name
+          cell?.textLabel?.set(Font.title)
+        }
+        
+        
         cell?.backgroundColor = UIColor.mainInterfaceColor
         return cell!
     }

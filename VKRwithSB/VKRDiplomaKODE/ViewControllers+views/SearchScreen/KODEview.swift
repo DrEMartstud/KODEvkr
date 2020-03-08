@@ -64,14 +64,4 @@ class KODEview: UIView {
       label.textColor = UIColor.white
       addSubview(label)
     }
-
-
-
-
-
-
-
-
-
-
 }

@@ -5,4 +5,5 @@
   { "name": "Moscow", "category": "City" },
   { "name": "Saints Peterburg", "category": "City" },
   { "name": "Kazan", "category": "City" },
+  { "name": "Zelenogradsk", "category": "City"},
 ]

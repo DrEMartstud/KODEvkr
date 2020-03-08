@@ -17,18 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gu4-MZ-AnZ">
-                                <rect key="frame" x="8" y="156" width="398" height="56"/>
-                                <color key="backgroundColor" red="0.18194985390000001" green="0.181976676" blue="0.18194067480000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ljg-pb-Omh"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search"/>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-Er-Lyr">
-                                <rect key="frame" x="0.0" y="228" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
                                 <color key="backgroundColor" red="0.12355778370000001" green="0.1235780045" blue="0.1235509142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" restorationIdentifier="KODEview" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-ej-r64" userLabel="KODEview" customClass="KODEview" customModule="VKRwithSB" customModuleProvider="target">
@@ -54,21 +44,17 @@
                         <constraints>
                             <constraint firstItem="dC7-ej-r64" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" id="3pr-5u-3e8"/>
                             <constraint firstItem="dC7-ej-r64" firstAttribute="bottom" secondItem="IGR-Er-Lyr" secondAttribute="bottom" id="929-YC-D6g"/>
-                            <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="gu4-MZ-AnZ" secondAttribute="trailing" constant="8" id="Alm-KP-NPh"/>
                             <constraint firstItem="IGR-Er-Lyr" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" id="PAq-7G-ycR"/>
+                            <constraint firstItem="IGR-Er-Lyr" firstAttribute="top" secondItem="wVw-0u-kjf" secondAttribute="top" constant="16" id="XoS-Up-uEx"/>
                             <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="IGR-Er-Lyr" secondAttribute="trailing" id="Yva-TK-XyP"/>
-                            <constraint firstItem="gu4-MZ-AnZ" firstAttribute="leading" secondItem="wVw-0u-kjf" secondAttribute="leading" constant="8" id="fih-SN-gh7"/>
-                            <constraint firstItem="IGR-Er-Lyr" firstAttribute="top" secondItem="gu4-MZ-AnZ" secondAttribute="bottom" constant="16" id="gl7-3V-gwE"/>
                             <constraint firstItem="wVw-0u-kjf" firstAttribute="trailing" secondItem="dC7-ej-r64" secondAttribute="trailing" id="oO5-hY-Skq"/>
-                            <constraint firstItem="gu4-MZ-AnZ" firstAttribute="top" secondItem="wVw-0u-kjf" secondAttribute="top" constant="16" id="xaA-6N-nOj"/>
                             <constraint firstAttribute="bottom" secondItem="dC7-ej-r64" secondAttribute="bottom" id="yke-Zh-dOu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wVw-0u-kjf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск" id="ti8-3P-cKc"/>
                     <connections>
-                        <outlet property="searchBar" destination="gu4-MZ-AnZ" id="fIa-a2-D4j"/>
-                        <outlet property="searchResults" destination="IGR-Er-Lyr" id="ZYy-Eg-yGh"/>
+                        <outlet property="tableView" destination="IGR-Er-Lyr" id="ZYy-Eg-yGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scY-GP-Oru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
