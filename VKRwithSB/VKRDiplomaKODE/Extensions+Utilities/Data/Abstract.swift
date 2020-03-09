@@ -11,6 +11,8 @@ import Foundation
 struct Abstract: Decodable {
     let name: String
     let category: Category
+    let lat: String
+    let lon: String
     
     enum Category: Decodable {
         case all

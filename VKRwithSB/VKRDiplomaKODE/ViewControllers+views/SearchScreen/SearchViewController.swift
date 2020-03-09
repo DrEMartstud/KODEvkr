@@ -39,6 +39,7 @@ class SearchViewController: UIViewController {
         
        // fillArrayWithTestValues()
         parsedDataArray = Abstract.abstract()
+        
         setupSearchController()
         for word in parsedDataArray {
             usersHistoryArray.append(word.name)
@@ -149,8 +150,16 @@ class SearchViewController: UIViewController {
         view.layoutIfNeeded()
         return
       }
-
-      guard let info = notification.userInfo else {return}
+    }
+    //MARK:- prepare
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      guard segue.identifier == "ShowWeather",
+        let indexPath = tableView.indexPathForSelectedRow,
+        let weatherViewController = segue.destination as? WeatherViewController
+        else {return}
+      let place: Abstract
+      if isFiltering {place = parsedSearchResultsArray[indexPath.row]} else {place = parsedDataArray[indexPath.row]}
+      weatherViewController.place = place
     }
 }
 

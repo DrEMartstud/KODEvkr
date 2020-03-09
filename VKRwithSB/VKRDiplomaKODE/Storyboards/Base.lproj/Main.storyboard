@@ -18,8 +18,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-Er-Lyr">
-                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                                 <color key="backgroundColor" red="0.12355778370000001" green="0.1235780045" blue="0.1235509142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="MhB-oW-8Om" style="IBUITableViewCellStyleDefault" id="KAF-c3-I3z" customClass="searchResultsCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAF-c3-I3z" id="5s8-wg-KaA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MhB-oW-8Om">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iBp-UI-IBi" kind="show" identifier="ShowWeather" id="pf2-5e-A9S"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" restorationIdentifier="KODEview" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-ej-r64" userLabel="KODEview" customClass="KODEview" customModule="VKRwithSB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
@@ -88,31 +110,31 @@
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EO-JZ-qPp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="159"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="159"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1EO-JZ-qPp" secondAttribute="height" multiplier="125:48" id="FF3-pN-wsm"/>
                                 </constraints>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="swk-5j-Fmu">
-                                <rect key="frame" x="24" y="219" width="366" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placeNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="swk-5j-Fmu">
+                                <rect key="frame" x="24" y="315" width="366" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" name="mainColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сегодня, \(date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kr8-vm-k89">
-                                <rect key="frame" x="24" y="266" width="366" height="20"/>
+                                <rect key="frame" x="24" y="362" width="366" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="secondaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Завтра, \(date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jK5-Mg-9aD">
-                                <rect key="frame" x="24" y="513" width="366" height="20"/>
+                                <rect key="frame" x="24" y="561" width="366" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" name="secondaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n9r-If-bro">
-                                <rect key="frame" x="0.0" y="302" width="414" height="195"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="147"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SXo-n6-oJ0">
                                     <size key="itemSize" width="80" height="119"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -121,7 +143,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Ldd-cI-2Io" customClass="WeatherCollectionViewCell" customModule="VKRwithSB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="37.5" width="80" height="120"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="80" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZeV-ho-pNr">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
@@ -177,7 +199,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qkd-09-Ulb">
-                                <rect key="frame" x="0.0" y="549" width="414" height="195"/>
+                                <rect key="frame" x="0.0" y="597" width="414" height="147"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pEN-VG-VFT">
                                     <size key="itemSize" width="80" height="119"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -186,7 +208,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCollectionViewCell" id="fix-9J-plU" customClass="WeatherCollectionViewCell" customModule="VKRwithSB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="37.5" width="80" height="120"/>
+                                        <rect key="frame" x="0.0" y="13.5" width="80" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cde-bZ-uIG">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="120"/>
@@ -291,6 +313,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5jM-bB-uQK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="276-aN-RsV"/>
+                    <connections>
+                        <outlet property="placeNameLabel" destination="swk-5j-Fmu" id="TTS-OJ-Nb7"/>
+                        <outlet property="todaysDate" destination="kr8-vm-k89" id="2ZJ-tE-MeY"/>
+                        <outlet property="tomorrowsDate" destination="jK5-Mg-9aD" id="eD4-vC-3nM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErI-Y5-ZDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -492,7 +520,7 @@
             <color red="0.11900000274181366" green="0.11900000274181366" blue="0.11900000274181366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="secondaryColor">
-            <color red="0.89800000190734863" green="0.89800000190734863" blue="0.89800000190734863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="secondaryInterfaceColor">
             <color red="0.23499999940395355" green="0.23499999940395355" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

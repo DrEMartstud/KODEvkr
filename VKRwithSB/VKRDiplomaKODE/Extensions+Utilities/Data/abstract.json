@@ -1,9 +1,9 @@
 [
-  { "name": "Kaliningrad", "category": "City" },
-  { "name": "Russia", "category": "Country" },
-  { "name": "America", "category": "Country" },
-  { "name": "Moscow", "category": "City" },
-  { "name": "Saints Peterburg", "category": "City" },
-  { "name": "Kazan", "category": "City" },
-  { "name": "Zelenogradsk", "category": "City"},
+    { "name": "Kaliningrad", "category": "City", "lat": "54.720379", "lon": "20.500891" },
+  { "name": "Russia", "category": "Country", "lat": "61.524010", "lon": "105.318756" },
+  { "name": "America", "category": "Country", "lat": "37.090240", "lon": "-95.712891" },
+  { "name": "Moscow", "category": "City", "lat": "55.755825", "lon": "37.617298" },
+  { "name": "Saints Peterburg", "category": "City", "lat": "59.939009", "lon": "29.530321" },
+  { "name": "Kazan", "category": "City", "lat": "55.795421", "lon": "48.933222" },
+  { "name": "Zelenogradsk", "category": "City", "lat": "54.957367", "lon": "20.457349"},
 ]
