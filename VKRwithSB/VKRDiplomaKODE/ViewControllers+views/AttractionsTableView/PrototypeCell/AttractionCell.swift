@@ -83,7 +83,7 @@ class AttractionCell: UITableViewCell {
         descriptionLabel.heightAnchor.constraint(equalToConstant: 83).isActive =                                         true
         descriptionLabel.leadingAnchor.constraint(equalTo: attractionTitleLabel.leadingAnchor, constant: 0).isActive =   true
         descriptionLabel.trailingAnchor.constraint(equalTo: attractionTitleLabel.trailingAnchor, constant: 0).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: attractionTitleLabel.bottomAnchor, constant: 16).isActive =        true
+        descriptionLabel.topAnchor.constraint(equalTo: attractionTitleLabel.bottomAnchor, constant: 16).isActive =       true
         descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 8).isActive =                          true
         
     }

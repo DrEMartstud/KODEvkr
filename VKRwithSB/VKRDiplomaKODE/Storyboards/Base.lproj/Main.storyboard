@@ -18,30 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-Er-Lyr">
-                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
                                 <color key="backgroundColor" red="0.12355778370000001" green="0.1235780045" blue="0.1235509142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="MhB-oW-8Om" style="IBUITableViewCellStyleDefault" id="KAF-c3-I3z" customClass="searchResultsCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAF-c3-I3z" id="5s8-wg-KaA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MhB-oW-8Om">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="iBp-UI-IBi" kind="show" identifier="ShowWeather" id="pf2-5e-A9S"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" restorationIdentifier="KODEview" translatesAutoresizingMaskIntoConstraints="NO" id="dC7-ej-r64" userLabel="KODEview" customClass="KODEview" customModule="VKRwithSB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="816" width="414" height="80"/>
@@ -77,6 +55,7 @@
                     <navigationItem key="navigationItem" title="Поиск" id="ti8-3P-cKc"/>
                     <connections>
                         <outlet property="tableView" destination="IGR-Er-Lyr" id="ZYy-Eg-yGh"/>
+                        <segue destination="iBp-UI-IBi" kind="show" identifier="ShowWeatherSegue" id="1rW-eC-O0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scY-GP-Oru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,7 +246,7 @@
                                 <rect key="frame" x="24" y="752" width="366" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyt-lI-24m">
-                                        <rect key="frame" x="71.5" y="10.5" width="223" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="56"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Достопримечательности">
                                             <color key="titleColor" name="mainColor"/>
@@ -276,9 +255,13 @@
                                 </subviews>
                                 <color key="backgroundColor" name="blueButtonColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yyt-lI-24m" secondAttribute="bottom" id="8BU-bc-dj2"/>
                                     <constraint firstItem="yyt-lI-24m" firstAttribute="centerY" secondItem="6XZ-10-fgw" secondAttribute="centerY" id="9Ag-Ul-zlk"/>
+                                    <constraint firstItem="yyt-lI-24m" firstAttribute="top" secondItem="6XZ-10-fgw" secondAttribute="top" id="Ir2-ZC-Qqc"/>
+                                    <constraint firstAttribute="trailing" secondItem="yyt-lI-24m" secondAttribute="trailing" id="MIq-ws-kGk"/>
                                     <constraint firstAttribute="height" constant="56" id="VVs-a9-hUT"/>
                                     <constraint firstItem="yyt-lI-24m" firstAttribute="centerX" secondItem="6XZ-10-fgw" secondAttribute="centerX" id="m48-rI-mFg"/>
+                                    <constraint firstItem="yyt-lI-24m" firstAttribute="leading" secondItem="6XZ-10-fgw" secondAttribute="leading" id="pxC-Kd-2gw"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -318,6 +301,7 @@
                         <outlet property="placeNameLabel" destination="swk-5j-Fmu" id="TTS-OJ-Nb7"/>
                         <outlet property="todaysDate" destination="kr8-vm-k89" id="2ZJ-tE-MeY"/>
                         <outlet property="tomorrowsDate" destination="jK5-Mg-9aD" id="eD4-vC-3nM"/>
+                        <outlet property="weathersVCmap" destination="1EO-JZ-qPp" id="Lds-ID-0ih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErI-Y5-ZDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,7 +353,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" name="mainInterfaceColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Cvn-0O-wf0" secondAttribute="trailing" constant="8" id="1Gd-Yi-cKn"/>
                                                         <constraint firstItem="MQ3-fJ-2w2" firstAttribute="top" secondItem="foP-QV-ClS" secondAttribute="top" id="3Kw-8W-Yh7"/>
@@ -464,8 +448,14 @@
                                     <constraint firstItem="1by-Yx-MyT" firstAttribute="centerY" secondItem="3GN-Lv-5bW" secondAttribute="centerY" id="vl9-iG-c79"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grf-Gw-jZx">
+                                <rect key="frame" x="0.0" y="93" width="414" height="715"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="sHY-cY-fvL"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zwN-SY-CMN"/>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="mainInterfaceColor"/>
                         <constraints>
                             <constraint firstItem="3GN-Lv-5bW" firstAttribute="trailing" secondItem="vo7-e5-7ZU" secondAttribute="trailing" id="E23-ec-eyi"/>
                             <constraint firstAttribute="bottom" secondItem="3GN-Lv-5bW" secondAttribute="bottom" id="deq-Hb-ACz"/>
@@ -473,6 +463,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vo7-e5-7ZU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jnK-cV-toQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4t-za-DkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

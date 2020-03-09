@@ -7,35 +7,37 @@
 //
 
 import UIKit
-
+import MapKit
 class WeatherViewController: UIViewController {
 
+    @IBOutlet weak var weathersVCmap: MKMapView!
     @IBOutlet weak var todaysDate: UILabel!
     @IBOutlet weak var tomorrowsDate: UILabel!
     @IBOutlet weak var placeNameLabel: UILabel!
     var place: Abstract? {
       didSet {
-        configureView()
+       configureView()
       }
     }
     
     override func viewDidLoad() {
       super.viewDidLoad()
-      
-      configureView()
+       configureView()
     }
     
     func configureView() {
-      if let place = place,
-        let placeNameLabel = placeNameLabel{
+        if let place = place, let placeNameLabel = placeNameLabel, let todaysDate = todaysDate, let tomorrowsDate = tomorrowsDate{
+        
         let lat = place.lat
         let lon = place.lon
-        let todaysDate = Date()
+        let date = Date()
+            todaysDate.text = "Сегодня, \(date)"
         let calendar = Calendar.current
+            
         print(todaysDate)
         print(calendar)
         placeNameLabel.text = place.name
-        title = "\(place.category.rawValue) \(place.name)"
+        title = "\(place.name)"
       }
     }
     

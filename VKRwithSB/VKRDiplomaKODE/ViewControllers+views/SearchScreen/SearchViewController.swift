@@ -52,8 +52,8 @@ class SearchViewController: UIViewController {
 //
         setupNotificationCenter()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-        view.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+//        view.addGestureRecognizer(tapGesture)
     }
     //MARK:- viewWillAppear
      override func viewWillAppear(_ animated: Bool) {
@@ -124,9 +124,9 @@ class SearchViewController: UIViewController {
     func retrieveHistoryArray(historyArray: inout [String]) {historyArray = SearchHistory.searchHistory}
     
     //MARK:- closeKeyboard
-    @objc func closeKeyboard() {
-    view.endEditing(true)
-    }
+//    @objc func closeKeyboard() {
+//    view.endEditing(true)
+//    }
     
     //MARK:- Filter Content for search
     func filterContentForSearchText(_ searchText: String,category: Abstract.Category? = nil) {
@@ -153,14 +153,20 @@ class SearchViewController: UIViewController {
     }
     //MARK:- prepare
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard segue.identifier == "ShowWeather",
-        let indexPath = tableView.indexPathForSelectedRow,
-        let weatherViewController = segue.destination as? WeatherViewController
-        else {return}
+        guard
+            segue.identifier == Segues.toWeather,
+            let weatherViewController = segue.destination as? WeatherViewController,
+            let indexPath = tableView.indexPathForSelectedRow
+            else { print("Prap Err"); return}
       let place: Abstract
       if isFiltering {place = parsedSearchResultsArray[indexPath.row]} else {place = parsedDataArray[indexPath.row]}
       weatherViewController.place = place
     }
+//    func segueTapped(){
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        guard let destinationVC = mainStoryboard.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController else {print("VC 404");return}
+//        navigationController?.pushViewController(destinationVC, animated: true)
+//    }
 }
 
 
@@ -224,4 +230,15 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell?.backgroundColor = UIColor.mainInterfaceColor
         return cell!
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        performSegue(withIdentifier: Segues.toWeather, sender: self)
+        if screenShowsFirstTime {
+            print(indexPath)
+            print(indexPath.row)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else {}
+     
+    }
+
 }

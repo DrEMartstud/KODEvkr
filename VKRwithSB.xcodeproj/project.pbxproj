@@ -26,6 +26,7 @@
 		DC3C2B64240C15FF00264E4A /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B55240C15FF00264E4A /* AttractionCell.swift */; };
 		DC3C2B65240C15FF00264E4A /* KODEview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B56240C15FF00264E4A /* KODEview.swift */; };
 		DC3C2B6A240C180400264E4A /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C2B69240C180400264E4A /* Cells.swift */; };
+		DC95504B2416D78C0063979F /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95504A2416D78C0063979F /* Segues.swift */; };
 		DCE429912415ADBB00E77909 /* TestStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE429902415ADBB00E77909 /* TestStruct.swift */; };
 		DCF105A52412E2EB009DFD9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A42412E2EB009DFD9E /* UserDefaults.swift */; };
 		DCF105A72412E2F6009DFD9E /* Abstract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF105A62412E2F6009DFD9E /* Abstract.swift */; };
@@ -55,6 +56,7 @@
 		DC3C2B55240C15FF00264E4A /* AttractionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		DC3C2B56240C15FF00264E4A /* KODEview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KODEview.swift; sourceTree = "<group>"; };
 		DC3C2B69240C180400264E4A /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		DC95504A2416D78C0063979F /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		DCE429902415ADBB00E77909 /* TestStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStruct.swift; sourceTree = "<group>"; };
 		DCF105A42412E2EB009DFD9E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		DCF105A62412E2F6009DFD9E /* Abstract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abstract.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				DCF105A82412E301009DFD9E /* abstract.json */,
 				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
 				DC3C2B69240C180400264E4A /* Cells.swift */,
+				DC95504A2416D78C0063979F /* Segues.swift */,
 				DCE429902415ADBB00E77909 /* TestStruct.swift */,
 			);
 			path = Data;
@@ -307,6 +310,7 @@
 				DC3C2B61240C15FF00264E4A /* Attraction.swift in Sources */,
 				DC3C2B65240C15FF00264E4A /* KODEview.swift in Sources */,
 				DC3C2B5E240C15FF00264E4A /* FontSetup.swift in Sources */,
+				DC95504B2416D78C0063979F /* Segues.swift in Sources */,
 				DC3C2B63240C15FF00264E4A /* AttractionViewController.swift in Sources */,
 				DC15B9C6240DA0B800C97CD7 /* setCornerRadiusExtension.swift in Sources */,
 				DCE429912415ADBB00E77909 /* TestStruct.swift in Sources */,
