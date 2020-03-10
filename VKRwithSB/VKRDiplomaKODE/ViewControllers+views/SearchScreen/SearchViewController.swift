@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     var parsedSearchResultsArray:[Abstract] = []
     //
     var searchResultsArray:[String] = []
-    var usersHistoryArray:[String] = []
+    var usersHistoryArray:[String] = [] {didSet {saveHistoryArray(usersInput: &usersHistoryArray, historyArray: &searchHistoryArray)}}
     var searchHistoryArray:[String] = []
     //
     let searchController = UISearchController(searchResultsController: nil)
@@ -45,7 +45,7 @@ class SearchViewController: UIViewController {
             usersHistoryArray.append(word.name)
         }
         print(usersHistoryArray)
-        saveHistoryArray(usersInput: &usersHistoryArray, historyArray: &searchHistoryArray)
+        
         appendSearchResultsArray()
         tableView.dataSource = self
         tableView.delegate = self
@@ -235,14 +235,17 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         if screenShowsFirstTime {return "Последние запросы"}
         return "Похожие запросы"
     }
+    
+    //MARK:- tap on cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         
         if screenShowsFirstTime {
-            print(indexPath)
-            print(indexPath.row)
+            searchController.searchBar.text = searchHistoryArray[indexPath.row]
             tableView.deselectRow(at: indexPath, animated: true)
-        } else {performSegue(withIdentifier: Segues.toWeather, sender: self)}
+        } else {performSegue(withIdentifier: Segues.toWeather, sender: self)
+            if isFiltering {usersHistoryArray.append(parsedSearchResultsArray[indexPath.row].name)} else {usersHistoryArray.append(parsedDataArray[indexPath.row].name)}
+        }
         tableView.deselectRow(at: indexPath, animated: true)
      
     }

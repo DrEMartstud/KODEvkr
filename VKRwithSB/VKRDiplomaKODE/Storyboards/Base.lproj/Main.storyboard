@@ -125,6 +125,13 @@
                                     <constraint firstItem="yyt-lI-24m" firstAttribute="leading" secondItem="6XZ-10-fgw" secondAttribute="leading" id="pxC-Kd-2gw"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customPin" translatesAutoresizingMaskIntoConstraints="NO" id="EYb-3z-bhe">
+                                <rect key="frame" x="189" y="183.5" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="4cz-iD-sxh"/>
+                                    <constraint firstAttribute="height" constant="36" id="x96-Ej-HJc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="mainInterfaceColor"/>
                         <constraints>
@@ -138,8 +145,10 @@
                             <constraint firstAttribute="bottom" secondItem="Y0z-wZ-R0M" secondAttribute="bottom" id="Uiq-zG-x2t"/>
                             <constraint firstItem="5jM-bB-uQK" firstAttribute="trailing" secondItem="6XZ-10-fgw" secondAttribute="trailing" constant="24" id="WpP-9I-nsV"/>
                             <constraint firstItem="swk-5j-Fmu" firstAttribute="leading" secondItem="5jM-bB-uQK" secondAttribute="leading" constant="24" id="ZFY-IP-cmX"/>
+                            <constraint firstItem="EYb-3z-bhe" firstAttribute="centerX" secondItem="1EO-JZ-qPp" secondAttribute="centerX" id="bWn-1h-z7t"/>
                             <constraint firstItem="Y0z-wZ-R0M" firstAttribute="top" secondItem="6XZ-10-fgw" secondAttribute="bottom" constant="8" id="drN-k9-vDH"/>
                             <constraint firstItem="swk-5j-Fmu" firstAttribute="top" secondItem="1EO-JZ-qPp" secondAttribute="bottom" constant="16" id="kab-Ld-b8r"/>
+                            <constraint firstItem="EYb-3z-bhe" firstAttribute="centerY" secondItem="1EO-JZ-qPp" secondAttribute="centerY" constant="-18" id="wUg-Ry-R6Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5jM-bB-uQK"/>
                     </view>
@@ -566,6 +575,7 @@
     <resources>
         <image name="KODE" width="123" height="37"/>
         <image name="cloudy" width="36" height="36"/>
+        <image name="customPin" width="40" height="40"/>
         <image name="gradient" width="106" height="53"/>
         <image name="rainImage" width="2000" height="1333"/>
         <namedColor name="blueButtonColor">

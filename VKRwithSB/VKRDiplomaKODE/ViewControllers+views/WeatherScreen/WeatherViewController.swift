@@ -16,7 +16,7 @@ class WeatherViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Cells.weatherCell)
+        cv.register(WeatherCollectionViewCell.self, forCellWithReuseIdentifier: Cells.weatherCell)
         return cv
     }()
     @IBOutlet weak var mapView: MKMapView!
@@ -61,7 +61,7 @@ class WeatherViewController: UIViewController {
     func configureView() {
         
         if let place = place, let placeNameLabel = placeNameLabel{
-            if place.category == Abstract.Category.country { regionRadius = 10000000} else { regionRadius = 100000}
+            if place.category == Abstract.Category.country { title = "Погода в стране";regionRadius = 10000000} else { title = "Погода в городе";regionRadius = 100000}
         let lat = Double(place.lat)
         let lon = Double(place.lon)
         let latitude = CLLocationDegrees(exactly: lat!)
@@ -76,7 +76,7 @@ class WeatherViewController: UIViewController {
        
 //        print(calendar)
         placeNameLabel.text = place.name
-        title = "\(place.name)"
+        
             
       }
     }
@@ -109,7 +109,7 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.weatherCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.weatherCell, for: indexPath) as! WeatherCollectionViewCell
         cell.backgroundColor = UIColor.secondaryInterfaceColor
         cell.setCornerRadius(r: 8)
         return cell
