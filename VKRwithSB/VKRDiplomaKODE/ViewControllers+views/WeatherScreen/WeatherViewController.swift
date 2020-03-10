@@ -26,7 +26,7 @@ class WeatherViewController: UIViewController {
     //
     var regionRadius: CLLocationDistance = 100000
     //
-    var weatherArray:[String] = []
+    var weatherArray:[Weather] = []
     var place: Abstract? {
       didSet {
        configureView()
@@ -35,6 +35,9 @@ class WeatherViewController: UIViewController {
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
       super.viewDidLoad()
+        weatherArray = Weather.weather()
+        print("Weather:")
+        print(weatherArray)
        configureView()
         configureCollection()
         setupDelegates()
@@ -69,16 +72,38 @@ class WeatherViewController: UIViewController {
         let location = CLLocation(latitude: latitude!, longitude: longitude!)
         centerMapOnLocation(location: location)
             
-//            let date = Date()
-          
+//        let date = Date()
 //        let calendar = Calendar.current
-            
-       
 //        print(calendar)
-        placeNameLabel.text = place.name
-        
             
+        placeNameLabel.text = place.name
       }
+    }
+    
+    //MARK:- setWeatherInfo
+    func setWeatherInfo(){
+//        switch Weather.weather_code {
+//        case 113:
+//            .image = WeatherState.clearSun
+//            .text = "Солнечно"
+//        case 176...199:
+//            .image = WeatherState.rain
+//            .text = "Дождь"
+//        case 200:
+//            .image = WeatherState.thunder
+//            .text = "Гроза"
+//        case 248...311:
+//            .image = WeatherState.rain
+//            .text = "Дождь"
+//        case 227...230:
+//            .image = WeatherState.snow
+//            .text = "Снег"
+//        case 116...143:
+//            .image = WeatherState.sunAndCloud
+//            .text = "Облачно"
+//        default:
+//            print("Default value of weather state got triggered")
+//        }
     }
     //MARK:- centerMapOnLocation
     func centerMapOnLocation(location: CLLocation) {

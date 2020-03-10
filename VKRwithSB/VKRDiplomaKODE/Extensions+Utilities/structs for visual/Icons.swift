@@ -10,11 +10,12 @@ import UIKit
 
 //MARK:- struct WeatherState
 struct WeatherState {
-    static let clearSun = UIImage(named: "clearSun.pdf") //code: 113
-    //static let night = UIImage(named: "night.pdf") //code: 113 if night
-   // static let rain = UIImage(named: "rain.pdf") //code: 176 - 200 248 - 311
-  //  static let snow = UIImage(named: "snow.pdf") //code: 227 - 230
-    static let sunAndCloud = UIImage(named: "cloudy.pdf") //code: 116 - 143
+    static let clearSun = UIImage(named: "clearSun") //code: 113
+    static let night = UIImage(named: "night") //code: 113 if night
+    static let rain = UIImage(named: "rain") //code: 176 - 200 248 - 311
+    static let snow = UIImage(named: "snow") //code: 227 - 230
+    static let sunAndCloud = UIImage(named: "cloudy") //code: 116 - 143
+    static let thunder = UIImage(named: "thunder")
 }
-//weatherStateIcon.image = WeatherState.snow
+//Usage: icon.image = WeatherState.snow
 
