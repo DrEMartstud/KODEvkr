@@ -27,6 +27,8 @@ class WeatherViewController: UIViewController {
     var regionRadius: CLLocationDistance = 100000
     //
     var weatherArray:[Weather] = []
+    var todaysWeatherArray:[Weather] = []
+    var tomorrowsWeatherArray:[Weather] = []
     var place: Abstract? {
       didSet {
        configureView()
@@ -35,10 +37,11 @@ class WeatherViewController: UIViewController {
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
       super.viewDidLoad()
+        todaysWeatherArray = []
+        tomorrowsWeatherArray = []
         weatherArray = Weather.weather()
-        print("Weather:")
-        print(weatherArray)
-       configureView()
+        configureWeatherArray(wArr: &weatherArray)
+        configureView()
         configureCollection()
         setupDelegates()
     }
@@ -79,47 +82,19 @@ class WeatherViewController: UIViewController {
         placeNameLabel.text = place.name
       }
     }
-    
-    //MARK:- setWeatherInfo
-    func setWeatherInfo(){
-//        switch Weather.weather_code {
-//        case 113:
-//            .image = WeatherState.clearSun
-//            .text = "Солнечно"
-//        case 176...199:
-//            .image = WeatherState.rain
-//            .text = "Дождь"
-//        case 200:
-//            .image = WeatherState.thunder
-//            .text = "Гроза"
-//        case 248...311:
-//            .image = WeatherState.rain
-//            .text = "Дождь"
-//        case 227...230:
-//            .image = WeatherState.snow
-//            .text = "Снег"
-//        case 116...143:
-//            .image = WeatherState.sunAndCloud
-//            .text = "Облачно"
-//        default:
-//            print("Default value of weather state got triggered")
-//        }
+    //MARK:- configureWeatherArray
+    func configureWeatherArray(wArr: inout [Weather]) {
+        for item in wArr {
+            if item.observation_time == Weather.ObservationTime.current { todaysWeatherArray.append(item) } else { tomorrowsWeatherArray.append(item) }
+        }
+        print(todaysWeatherArray.count)
+        print(tomorrowsWeatherArray.count)
     }
     //MARK:- centerMapOnLocation
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
       mapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -130,11 +105,12 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return todaysWeatherArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.weatherCell, for: indexPath) as! WeatherCollectionViewCell
+        cell.data = self.todaysWeatherArray[indexPath.row]
         cell.backgroundColor = UIColor.secondaryInterfaceColor
         cell.setCornerRadius(r: 8)
         return cell

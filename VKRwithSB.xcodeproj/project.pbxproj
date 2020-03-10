@@ -223,8 +223,8 @@
 			children = (
 				DCF105A42412E2EB009DFD9E /* UserDefaults.swift */,
 				DC42AC5D24176F5B006C7257 /* Weather.swift */,
-				DC42AC602417AADB006C7257 /* weather.json */,
 				DCF105A62412E2F6009DFD9E /* Abstract.swift */,
+				DC42AC602417AADB006C7257 /* weather.json */,
 				DCF105A82412E301009DFD9E /* abstract.json */,
 				DC3C2B4F240C15FF00264E4A /* Attraction.swift */,
 				DC3C2B69240C180400264E4A /* Cells.swift */,

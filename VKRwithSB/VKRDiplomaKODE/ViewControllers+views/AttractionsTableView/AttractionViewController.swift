@@ -34,6 +34,7 @@ class AttractionViewController: UIViewController {
     }
     //MARK:- Set Delegates for Table
     func setTableViewDelegates() {
+        tableView.backgroundColor = UIColor.mainInterfaceColor
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -49,6 +50,7 @@ extension AttractionViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.attractionCell) as! AttractionCell
         let attraction = attractions[indexPath.row]
         cell.set(attraction: attraction)
+        cell.backgroundColor = UIColor.mainInterfaceColor
         return cell
     }
 }

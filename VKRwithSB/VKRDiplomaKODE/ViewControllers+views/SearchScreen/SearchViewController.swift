@@ -247,7 +247,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             if isFiltering {usersHistoryArray.append(parsedSearchResultsArray[indexPath.row].name)} else {usersHistoryArray.append(parsedDataArray[indexPath.row].name)}
         }
         tableView.deselectRow(at: indexPath, animated: true)
-     
     }
 
 }

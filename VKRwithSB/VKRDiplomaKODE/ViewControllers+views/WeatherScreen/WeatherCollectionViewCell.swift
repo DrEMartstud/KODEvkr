@@ -2,14 +2,44 @@
 //  WeatherCollectionViewCell.swift
 //  VKRwithSB
 //
-//  Created by DrEMartstud on 02.03.2020.
+//  Created by DrEMartstud on 10.03.2020.
 //  Copyright © 2020 DrEMartstud. All rights reserved.
 //
 
 import UIKit
 
 class WeatherCollectionViewCell: UICollectionViewCell {
-   
+    var data: Weather? {
+        didSet {
+            guard let data = data else {return}
+            switch Int(data.weather_code) {
+                    case 113:
+                        weatherStateIcon.image = WeatherState.clearSun
+                        weatherStateLabel.text = "Солнечно"
+                    case 112:
+                       weatherStateIcon.image = WeatherState.night
+                       weatherStateLabel.text = "Ночь"
+                    case 176:
+                        weatherStateIcon.image = WeatherState.rain
+                        weatherStateLabel.text = "Дождь"
+                    case 200:
+                        weatherStateIcon.image = WeatherState.thunder
+                        weatherStateLabel.text = "Гроза"
+                    case 248:
+                        weatherStateIcon.image = WeatherState.rain
+                        weatherStateLabel.text = "Дождь"
+                    case 227:
+                        weatherStateIcon.image = WeatherState.snow
+                        weatherStateLabel.text = "Снег"
+                    case 116:
+                        weatherStateIcon.image = WeatherState.sunAndCloud
+                        weatherStateLabel.text = "Облачно"
+                    default:
+                        print("Default value of weather state got triggered")
+            }
+            timeLabel.text = data.time
+        }
+    }
     fileprivate let weatherStateIcon: UIImageView = {
         let iv = UIImageView()
         iv.image = WeatherState.clearSun
@@ -39,6 +69,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.addSubview(weatherStateIcon)
+        weatherStateIcon.heightAnchor.constraint(equalToConstant: 36).isActive = true
         weatherStateIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
         weatherStateIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 22).isActive = true
         weatherStateIcon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -22).isActive = true

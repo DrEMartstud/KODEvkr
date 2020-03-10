@@ -12,8 +12,8 @@ import Foundation
 struct Weather: Decodable {
     let time: String
     let temperature: String
-    let weatherCode: String
-    let observationTime: ObservationTime
+    let weather_code: String
+    let observation_time: ObservationTime
 
 
     enum ObservationTime: Decodable {
