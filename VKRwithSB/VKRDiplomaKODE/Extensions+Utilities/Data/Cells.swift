@@ -11,4 +11,5 @@ import UIKit
 struct Cells {
     static let searchResultsCell = "searchResultsCell"
     static let attractionCell = "AttractionCell"
+    static let weatherCell = "WeatherCell"
 }

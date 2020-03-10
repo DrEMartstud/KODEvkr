@@ -26,18 +26,18 @@ extension Abstract.Category: RawRepresentable {
     typealias RawValue = String
     init?(rawValue: RawValue) {
         switch rawValue {
-        case "All": self = .all
-        case "City": self = .city
-        case "Country": self = .country
+        case "Всё": self = .all
+        case "Город": self = .city
+        case "Страна": self = .country
         default: return nil
         }
     }
     
     var rawValue: RawValue {
         switch self {
-        case .all: return "All"
-        case .city: return "City"
-        case .country: return "Country"
+        case .all: return "Всё"
+        case .city: return "Город"
+        case .country: return "Страна"
         }
     }
 }
