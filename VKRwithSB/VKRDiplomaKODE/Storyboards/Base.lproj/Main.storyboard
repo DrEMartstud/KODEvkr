@@ -145,6 +145,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Погода" id="276-aN-RsV"/>
                     <connections>
+                        <outlet property="buttonsBackgroundView" destination="6XZ-10-fgw" id="Drh-l0-VVp"/>
                         <outlet property="getAttractionButton" destination="yyt-lI-24m" id="GDN-cg-sGK"/>
                         <outlet property="mapView" destination="1EO-JZ-qPp" id="Lds-ID-0ih"/>
                         <outlet property="placeNameLabel" destination="swk-5j-Fmu" id="TTS-OJ-Nb7"/>

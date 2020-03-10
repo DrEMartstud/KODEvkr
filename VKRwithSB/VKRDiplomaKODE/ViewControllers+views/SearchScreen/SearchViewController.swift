@@ -194,6 +194,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         if screenShowsFirstTime {
+            
             return searchHistoryArray.count
         }
         if isFiltering {
@@ -230,14 +231,19 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell?.backgroundColor = UIColor.mainInterfaceColor
         return cell!
     }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if screenShowsFirstTime {return "Последние запросы"}
+        return "Похожие запросы"
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        performSegue(withIdentifier: Segues.toWeather, sender: self)
+        
         if screenShowsFirstTime {
             print(indexPath)
             print(indexPath.row)
             tableView.deselectRow(at: indexPath, animated: true)
-        } else {}
+        } else {performSegue(withIdentifier: Segues.toWeather, sender: self)}
+        tableView.deselectRow(at: indexPath, animated: true)
      
     }
 

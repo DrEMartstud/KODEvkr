@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 class WeatherViewController: UIViewController {
+    
+//MARK:- Outlets + Vars and Lets
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -20,27 +22,32 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var getAttractionButton: UIButton!
-    
+    @IBOutlet weak var buttonsBackgroundView: UIView! { didSet { buttonsBackgroundView.setCornerRadius(r: 8) }}
+    //
     var regionRadius: CLLocationDistance = 100000
-    
+    //
     var weatherArray:[String] = []
     var place: Abstract? {
       didSet {
        configureView()
       }
     }
-    
+    //MARK:- viewDidLoad()
     override func viewDidLoad() {
       super.viewDidLoad()
        configureView()
         configureCollection()
         setupDelegates()
     }
+    
+    //MARK:- setupDelegates
     func setupDelegates() {
         mapView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    //MARK:- configureCollection
     func configureCollection() {
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.mainInterfaceColor
@@ -50,10 +57,11 @@ class WeatherViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5).isActive = true
         //collectionView.bottomAnchor.constraint(equalTo: getAttractionButton.topAnchor, constant: -16).isActive = true
     }
-    
+    //MARK:- configureView
     func configureView() {
+        
         if let place = place, let placeNameLabel = placeNameLabel{
-            if place.category == Abstract.Category.country { regionRadius = 1000000} else { regionRadius = 100000}
+            if place.category == Abstract.Category.country { regionRadius = 10000000} else { regionRadius = 100000}
         let lat = Double(place.lat)
         let lon = Double(place.lon)
         let latitude = CLLocationDegrees(exactly: lat!)
@@ -72,7 +80,7 @@ class WeatherViewController: UIViewController {
             
       }
     }
-    
+    //MARK:- centerMapOnLocation
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
       mapView.setRegion(coordinateRegion, animated: true)
@@ -89,6 +97,8 @@ class WeatherViewController: UIViewController {
     */
 
 }
+
+//MARK:- extensions
 extension WeatherViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/4.6, height: collectionView.frame.width/2.5)
@@ -111,11 +121,6 @@ extension WeatherViewController: UICollectionViewDelegateFlowLayout, UICollectio
 //MARK:- mapView moved
 extension WeatherViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-       
-      
-       
-    
-      
     }
 }
 
